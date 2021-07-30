@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "result[0]",
+					"strict" : false
+				},
+				{
+					"name" : "result[1]",
+					"strict" : false
+				},
+				{
+					"name" : "result[2]",
+					"strict" : false
+				},
+				{
+					"name" : "result[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentIn[0]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentIn[1]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentIn[2]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentIn[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentIn[4]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentIn[5]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentIn[6]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentOut[1]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentOut[2]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentOut[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentOut[4]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentOut[5]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentOut[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SW[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "SW[5]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

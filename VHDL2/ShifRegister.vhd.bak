@@ -1,0 +1,87 @@
+-- FreqDivider.vhd
+
+--***********************************************************************
+--	Description: 
+--	
+--	Inputs: 		
+--					
+--	Outputs: 	
+--***********************************************************************
+
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+-- Entity declaration
+
+ENTITY ShiftRegister IS
+
+	PORT (
+		clk 		: IN STD_LOGIC;
+		enable 	: IN STD_LOGIC;
+		reset		: IN STD_LOGIC;
+		inA 		: IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+		inB 		: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		result 	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	);
+
+END RightShifter;
+
+-- Architecture definition
+
+ARCHITECTURE Behavioral OF RightShifter IS
+	--------------------------------------------------------------------------
+	------------------------- INTERMEDIATE SIGNALS ---------------------------
+	--------------------------------------------------------------------------
+	SIGNAL resultSignal  : STD_LOGIC_VECTOR(5 DOWNTO 0);
+	SIGNAL DLeft			: STD_LOGIC;
+	SIGNAL Bint				: INTEGER range 0 to 15;
+	
+BEGIN
+
+	--------------------------------------------------------------------------
+	-------------------------- ARCHITECTURE LOGIC ----------------------------
+	--------------------------------------------------------------------------
+	
+	Bint <= to_integer(unsigned(inB)); 
+
+	PROCESS (inA)
+	BEGIN
+		DLeft <= inA(5);
+	END PROCESS;
+	
+	
+	PROCESS (enable)
+	BEGIN
+		
+--		IF (Reset = '1') THEN
+--			resultSignal <= inA;
+--		END IF;
+		
+		IF rising_edge(enable) THEN
+		
+			resultSignal(3 DOWNTO 1) <= inA(4 DOWNTO 2);
+			resultSignal(4) <= DLeft;
+				
+			FOR I IN 1 TO 15 LOOP
+			exit when (I = Bint);
+				
+				resultSignal(3 DOWNTO 1) <= resultSignal(4 DOWNTO 2);
+				resultSignal(4) <= DLeft;	
+						
+			END LOOP;
+
+		END IF;
+
+	END PROCESS;
+
+	-- output
+	result(7 DOWNTO 4) <= x"0";
+	
+	result(3) <= resultSignal(4) and enable;
+	result(2) <= resultSignal(3) and enable;
+	result(1) <= resultSignal(2) and enable;
+	result(0) <= resultSignal(1) and enable;
+	
+END;

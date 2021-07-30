@@ -1,0 +1,67 @@
+// Shifter.v
+
+//--***********************************************************************
+//--	Description: 
+//--	
+//--	Inputs: 		
+//--					
+//--	Outputs: 	
+//--***********************************************************************
+
+
+// Module declaration
+
+ENTITY Shifter IS
+
+	PORT (
+		clk 		: IN STD_LOGIC;
+		SW			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		result 	: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+	);
+
+END Shifter;
+
+-- Architecture definition
+
+ARCHITECTURE Behavioral OF Shifter IS
+	--------------------------------------------------------------------------
+	------------------------- INTERMEDIATE SIGNALS ---------------------------
+	--------------------------------------------------------------------------
+	SIGNAL R  : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	
+	SIGNAL S  : STD_LOGIC_VECTOR(1 DOWNTO 0);
+
+	
+BEGIN
+
+	--------------------------------------------------------------------------
+	-------------------------- ARCHITECTURE LOGIC ----------------------------
+	--------------------------------------------------------------------------
+	PROCESS (SW)
+	BEGIN
+		S <= SW(7 downto 6);
+		result <= R;
+	END PROCESS;
+	
+	PROCESS (clk)
+	BEGIN
+		
+		IF rising_edge(clk) THEN
+		
+			case S is 
+				when "00" =>
+					NULL;
+				when "01" =>
+					R <= (R(2 downto 0) & SW(0));
+				when "10" =>
+					R <= (SW(5) & R(3 downto 1));
+				when "11" =>
+					R <= SW(4 downto 1);
+					
+			end case;
+		END IF;
+
+	END PROCESS;
+
+	
+END;

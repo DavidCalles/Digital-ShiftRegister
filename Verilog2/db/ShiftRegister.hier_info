@@ -1,0 +1,83 @@
+|ShiftRegister
+clk => clk.IN1
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN2
+SW[2] => SW[2].IN2
+SW[3] => SW[3].IN2
+SW[4] => SW[4].IN2
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+result[0] << resultSignal[0].DB_MAX_OUTPUT_PORT_TYPE
+result[1] << resultSignal[1].DB_MAX_OUTPUT_PORT_TYPE
+result[2] << resultSignal[2].DB_MAX_OUTPUT_PORT_TYPE
+result[3] << resultSignal[3].DB_MAX_OUTPUT_PORT_TYPE
+segmentIn[0] << SevenSegments:SevenSegments0.port1
+segmentIn[1] << SevenSegments:SevenSegments0.port1
+segmentIn[2] << SevenSegments:SevenSegments0.port1
+segmentIn[3] << SevenSegments:SevenSegments0.port1
+segmentIn[4] << SevenSegments:SevenSegments0.port1
+segmentIn[5] << SevenSegments:SevenSegments0.port1
+segmentIn[6] << SevenSegments:SevenSegments0.port1
+segmentOut[0] << SevenSegments:SevenSegments1.port1
+segmentOut[1] << SevenSegments:SevenSegments1.port1
+segmentOut[2] << SevenSegments:SevenSegments1.port1
+segmentOut[3] << SevenSegments:SevenSegments1.port1
+segmentOut[4] << SevenSegments:SevenSegments1.port1
+segmentOut[5] << SevenSegments:SevenSegments1.port1
+segmentOut[6] << SevenSegments:SevenSegments1.port1
+
+
+|ShiftRegister|SevenSegments:SevenSegments0
+ones[0] => Decoder0.IN3
+ones[1] => Decoder0.IN2
+ones[2] => Decoder0.IN1
+ones[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ShiftRegister|SevenSegments:SevenSegments1
+ones[0] => Decoder0.IN3
+ones[1] => Decoder0.IN2
+ones[2] => Decoder0.IN1
+ones[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ShiftRegister|Shifter:Shifter1
+clk => R[0].CLK
+clk => R[1].CLK
+clk => R[2].CLK
+clk => R[3].CLK
+SW[0] => Mux3.IN1
+SW[1] => Mux3.IN0
+SW[2] => Mux2.IN0
+SW[3] => Mux1.IN0
+SW[4] => Mux0.IN1
+SW[5] => Mux0.IN0
+SW[6] => Mux0.IN5
+SW[6] => Mux1.IN5
+SW[6] => Mux2.IN5
+SW[6] => Mux3.IN5
+SW[7] => Mux0.IN4
+SW[7] => Mux1.IN4
+SW[7] => Mux2.IN4
+SW[7] => Mux3.IN4
+result[0] <= R[0].DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= R[1].DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= R[2].DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= R[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

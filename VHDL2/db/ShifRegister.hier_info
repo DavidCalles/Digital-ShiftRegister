@@ -1,0 +1,135 @@
+|ShifRegister
+clk => Shifter:Shifter1.clk
+SW[0] => Shifter:Shifter1.SW[0]
+SW[1] => SevenSegments:SevenSegments0.binNumber[0]
+SW[1] => Shifter:Shifter1.SW[1]
+SW[2] => SevenSegments:SevenSegments0.binNumber[1]
+SW[2] => Shifter:Shifter1.SW[2]
+SW[3] => SevenSegments:SevenSegments0.binNumber[2]
+SW[3] => Shifter:Shifter1.SW[3]
+SW[4] => SevenSegments:SevenSegments0.binNumber[3]
+SW[4] => Shifter:Shifter1.SW[4]
+SW[5] => Shifter:Shifter1.SW[5]
+SW[6] => Shifter:Shifter1.SW[6]
+SW[7] => Shifter:Shifter1.SW[7]
+result[0] <= Shifter:Shifter1.result[0]
+result[1] <= Shifter:Shifter1.result[1]
+result[2] <= Shifter:Shifter1.result[2]
+result[3] <= Shifter:Shifter1.result[3]
+segmentIn[0] <= SevenSegments:SevenSegments0.segmentLed[0]
+segmentIn[1] <= SevenSegments:SevenSegments0.segmentLed[1]
+segmentIn[2] <= SevenSegments:SevenSegments0.segmentLed[2]
+segmentIn[3] <= SevenSegments:SevenSegments0.segmentLed[3]
+segmentIn[4] <= SevenSegments:SevenSegments0.segmentLed[4]
+segmentIn[5] <= SevenSegments:SevenSegments0.segmentLed[5]
+segmentIn[6] <= SevenSegments:SevenSegments0.segmentLed[6]
+segmentOut[0] <= SevenSegments:SevenSegments1.segmentLed[0]
+segmentOut[1] <= SevenSegments:SevenSegments1.segmentLed[1]
+segmentOut[2] <= SevenSegments:SevenSegments1.segmentLed[2]
+segmentOut[3] <= SevenSegments:SevenSegments1.segmentLed[3]
+segmentOut[4] <= SevenSegments:SevenSegments1.segmentLed[4]
+segmentOut[5] <= SevenSegments:SevenSegments1.segmentLed[5]
+segmentOut[6] <= SevenSegments:SevenSegments1.segmentLed[6]
+
+
+|ShifRegister|SevenSegments:SevenSegments0
+binNumber[0] => Mux0.IN19
+binNumber[0] => Mux1.IN19
+binNumber[0] => Mux2.IN19
+binNumber[0] => Mux3.IN19
+binNumber[0] => Mux4.IN19
+binNumber[0] => Mux5.IN19
+binNumber[0] => Mux6.IN19
+binNumber[1] => Mux0.IN18
+binNumber[1] => Mux1.IN18
+binNumber[1] => Mux2.IN18
+binNumber[1] => Mux3.IN18
+binNumber[1] => Mux4.IN18
+binNumber[1] => Mux5.IN18
+binNumber[1] => Mux6.IN18
+binNumber[2] => Mux0.IN17
+binNumber[2] => Mux1.IN17
+binNumber[2] => Mux2.IN17
+binNumber[2] => Mux3.IN17
+binNumber[2] => Mux4.IN17
+binNumber[2] => Mux5.IN17
+binNumber[2] => Mux6.IN17
+binNumber[3] => Mux0.IN16
+binNumber[3] => Mux1.IN16
+binNumber[3] => Mux2.IN16
+binNumber[3] => Mux3.IN16
+binNumber[3] => Mux4.IN16
+binNumber[3] => Mux5.IN16
+binNumber[3] => Mux6.IN16
+segmentLed[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ShifRegister|SevenSegments:SevenSegments1
+binNumber[0] => Mux0.IN19
+binNumber[0] => Mux1.IN19
+binNumber[0] => Mux2.IN19
+binNumber[0] => Mux3.IN19
+binNumber[0] => Mux4.IN19
+binNumber[0] => Mux5.IN19
+binNumber[0] => Mux6.IN19
+binNumber[1] => Mux0.IN18
+binNumber[1] => Mux1.IN18
+binNumber[1] => Mux2.IN18
+binNumber[1] => Mux3.IN18
+binNumber[1] => Mux4.IN18
+binNumber[1] => Mux5.IN18
+binNumber[1] => Mux6.IN18
+binNumber[2] => Mux0.IN17
+binNumber[2] => Mux1.IN17
+binNumber[2] => Mux2.IN17
+binNumber[2] => Mux3.IN17
+binNumber[2] => Mux4.IN17
+binNumber[2] => Mux5.IN17
+binNumber[2] => Mux6.IN17
+binNumber[3] => Mux0.IN16
+binNumber[3] => Mux1.IN16
+binNumber[3] => Mux2.IN16
+binNumber[3] => Mux3.IN16
+binNumber[3] => Mux4.IN16
+binNumber[3] => Mux5.IN16
+binNumber[3] => Mux6.IN16
+segmentLed[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+segmentLed[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ShifRegister|Shifter:Shifter1
+clk => R[0].CLK
+clk => R[1].CLK
+clk => R[2].CLK
+clk => R[3].CLK
+SW[0] => Mux3.IN1
+SW[1] => Mux3.IN0
+SW[2] => Mux2.IN0
+SW[3] => Mux1.IN0
+SW[4] => Mux0.IN1
+SW[5] => Mux0.IN0
+SW[6] => Mux0.IN5
+SW[6] => Mux1.IN5
+SW[6] => Mux2.IN5
+SW[6] => Mux3.IN5
+SW[7] => Mux0.IN4
+SW[7] => Mux1.IN4
+SW[7] => Mux2.IN4
+SW[7] => Mux3.IN4
+result[0] <= R[0].DB_MAX_OUTPUT_PORT_TYPE
+result[1] <= R[1].DB_MAX_OUTPUT_PORT_TYPE
+result[2] <= R[2].DB_MAX_OUTPUT_PORT_TYPE
+result[3] <= R[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
